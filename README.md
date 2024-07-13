@@ -17,7 +17,7 @@ The application is live at: [https://package-name-checker-api-1.onrender.com](ht
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/package-name-checker-api.git
+    git clone https://github.com/shishir1337/package_name_checker_api.git
     cd package-name-checker-api
     ```
 
