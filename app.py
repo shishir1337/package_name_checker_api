@@ -14,7 +14,7 @@ def get_app_details(package_name):
         soup = BeautifulSoup(response.text, 'html.parser')
 
         # Extracting app name
-        app_name_tag = soup.find('h1', class_='Fd93Bb')
+        app_name_tag = soup.find('span', itemprop='name')  # Updated to use the correct tag
         app_name = app_name_tag.text.strip() if app_name_tag else "N/A"
 
         # Extracting developer name
@@ -50,6 +50,12 @@ def get_app_details(package_name):
     else:
         return None
 
+
+@app.route('/')
+def index():
+    return "Hello, World!"
+
+
 @app.route('/get_app_details', methods=['POST'])
 def get_app_details_api():
     data = request.json
@@ -66,5 +72,5 @@ def get_app_details_api():
     else:
         return jsonify({'message': 'Package name is unique!'})
 
-# if __name__ == '__main__':
-#     app.run(debug=True)
+if __name__ == '__main__':
+    app.run(debug=True)
